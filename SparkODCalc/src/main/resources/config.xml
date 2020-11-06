@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paths>
+    <!--  B表示单独使用公交IC数据进行计算，该模式必须指定busSitePath，siteNearSitePathWithOnlyBusSite，busICPath，以及三个resultPath-->
+    <!--  BR表示使用公交IC数据和轨道IC数据进行计算，该模式全部路径均需要指定-->
+    <mode>B</mode>
+    <baseData>
+        <!--    基础数据-->
+        <busSitePath>hdfs://10.10.102.8:9000/ODData/initData/SITEDATA/busSiteData1_6.csv</busSitePath>
+        <railSitePath>hdfs://10.10.102.8:9000/ODData/initData/SITEDATA/railSiteData.csv</railSitePath>
+    </baseData>
+
+    <tempData>
+        <!--    自动生成，需指定路径，其中siteNearSitePath计算一次，更新busSiteData和railSiteData，需重新生成-->
+        <siteNearSitePathWithOnlyBusSite>hdfs://10.10.102.8:9000/ODData/tempData/siteNearSitePathWithOnlyBusSite</siteNearSitePathWithOnlyBusSite>
+        <siteNearSitePath>hdfs://10.10.102.8:9000/ODData/tempData/siteNearSite</siteNearSitePath>
+        <!--    历史记录保存为临时文件，每次计算自动更新-->
+        <historyPath>hdfs://10.10.102.8:9000/ODData/tempData/histroyData</historyPath>
+    </tempData>
+
+    <initData>
+<!--        每日接入的公交IC数据，轨道IC数据，gps数据-->
+        <busICPath>hdfs://10.10.102.8:9000/ODData/initData/BusICData/2019-11-20.txt</busICPath>
+        <railICPath>hdfs://10.10.102.8:9000/ODData/initData/RailICData/2019-11-20</railICPath>
+        <gpsDataPath>hdfs://10.10.102.8:9000/ODData/initData/gpsData/2019-11-20</gpsDataPath>
+    </initData>
+
+    <resultData>
+<!--        计算结果路径，分别是全网OD结果，个人出行OD结果，换乘数据结果，必须指定-->
+        <allODResultPath>hdfs://10.10.102.8:9000/ODData/resultData/allODResult/2019-11-20</allODResultPath>
+        <singleODResultPath>hdfs://10.10.102.8:9000/ODData/resultData/singleODResultPath/2019-11-20</singleODResultPath>
+        <changeResultPath>hdfs://10.10.102.8:9000/ODData/resultData/changeResultPath/2019-11-20</changeResultPath>
+    </resultData>
+</paths>
